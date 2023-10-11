@@ -1,0 +1,16 @@
+public class CountSpecialCharacters {
+    public static void main(String[] args) {
+        String givenStatement = "Modi Birthday @ September 17, #&$% is the wishes code for him.";
+        int count = 0;
+
+        String specialCharacters = "!@#$%^&*()_+[]{}|;':,.<>?`~";
+
+        for (char character : givenStatement.toCharArray()) {
+            if (specialCharacters.contains(String.valueOf(character))) {
+                count++;
+            }
+        }
+
+        System.out.println("Number of special Characters: " + count);
+    }
+}
