@@ -1,0 +1,185 @@
+                     ASSIGNMENT 1
+1.Write a program to print the numbers from M to N by skipping K numbers in between?
+
+
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the starting number (M): ");
+        int M = scanner.nextInt();
+
+        System.out.print("Enter the ending number (N): ");
+        int N = scanner.nextInt();
+
+        System.out.print("Enter the skip value (K): ");
+        int K = scanner.nextInt();
+
+        System.out.println("Numbers from " + M + " to " + N + " skipping " + K + " numbers:");
+
+        for (int i = M; i <= N; i += K) {
+            System.out.println(i);
+        }
+    }
+}
+
+
+2.Write a program to print all the composite numbers between a and b?
+
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the lower bound (a): ");
+        int a = scanner.nextInt();
+
+        System.out.print("Enter the upper bound (b): ");
+        int b = scanner.nextInt();
+
+        System.out.println("Composite numbers between " + a + " and " + b + ":");
+
+        for (int num = a; num <= b; num++) {
+            if (isComposite(num)) {
+                System.out.println(num);
+            }
+        }
+    }
+
+    // Function to check if a number is composite
+    public static boolean isComposite(int number) {
+        if (number <= 1) {
+            return false;
+        }
+
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return true; // Number has a divisor other than 1 and itself
+            }
+        }
+        return false;
+    }
+}
+
+
+
+3.Find the Mean, Median, Mode of the array of numbers?
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        
+        int n = scanner.nextInt();
+
+        double[] numbers = new double[n];
+        for (int i = 0; i < n; i++) {
+            
+            numbers[i] = scanner.nextDouble();
+        }
+
+        // Calculate and print the mean
+        double mean = Arrays.stream(numbers).average().orElse(Double.NaN);
+        System.out.println("Mean: " + mean);
+
+        // Calculate and print the median
+        double median = calculateMedian(numbers);
+        System.out.println("Median: " + median);
+
+        // Calculate and print the mode
+        List<Double> modeList = calculateMode(numbers);
+        System.out.print("Mode: ");
+        for (Double mode : modeList) {
+            System.out.print(mode + " ");
+        }
+    }
+
+    public static double calculateMedian(double[] numbers) {
+        Arrays.sort(numbers);
+        int n = numbers.length;
+        if (n % 2 == 0) {
+            return (numbers[n / 2 - 1] + numbers[n / 2]) / 2.0;
+        } else {
+            return numbers[n / 2];
+        }
+    }
+
+
+               ASSIGNMENT 2
+1.Write a program to print the first n perfect numbers. (Hint Perfect number means a positive integer that is equal to the sum of its proper divisors)
+public class Main{
+    public static void main(String[] args) {
+        int n = 5; // Change n to the desired number of perfect numbers
+
+        int count = 0;
+        int number = 2; // Starting from 2 since 1 is not considered a perfect number
+
+        while (count < n) {
+            if (isPerfectNumber(number)) {
+                System.out.println(number);
+                count++;
+            }
+            number++;
+        }
+    }
+
+    public static boolean isPerfectNumber(int num) {
+        int sumOfDivisors = 1; // 1 is always a proper divisor
+
+        for (int i = 2; i <= num / 2; i++) {
+            if (num % i == 0) {
+                sumOfDivisors += i;
+            }
+        }
+
+        return sumOfDivisors == num;
+    }
+}
+
+
+
+2.Write a Program to Find the Nth Largest Number in a array.
+
+
+
+import java.util.Arrays;
+
+public class Main{
+    public static void main(String[] args) {
+        int[] list = {14, 67, 48, 23, 5, 62};
+        int n = 4; // Change 'n' to the desired rank of the largest number
+
+        if (n <= list.length && n > 0) {
+            Arrays.sort(list); // Sort the array in ascending order
+            int nthLargest = list[list.length - n];
+            System.out.println(n + "th Largest number: " + nthLargest);
+        } else {
+            System.out.println("Invalid value of 'n'.");
+        }
+    }
+}
+
+
+3.Write a program to find the number of special characters in the given statement
+
+
+
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] list = {14, 67, 48, 23, 5, 62};
+        int n = 4; // Change 'n' to the desired rank of the largest number
+
+        if (n <= list.length && n > 0) {
+            Arrays.sort(list); // Sort the array in ascending order
+            int nthLargest = list[list.length - n];
+            System.out.println(n + "th Largest number: " + nthLargest);
+        } else {
+            System.out.println("Invalid value of 'n'.");
+        }
+    }
+}
